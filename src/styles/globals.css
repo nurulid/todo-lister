@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950;
+  }
+}
+
+@layer components {
+  .card {
+    @apply p-5 bg-[#EEEED0] text-[#162B5A] rounded-lg order-2 relative;
+  }
+
+  .card--priority {
+    @apply bg-[#162B5A] text-[#dbe3f5] order-1;
+  }
+
+  .card[data-done="done"] {
+    @apply opacity-30 order-4;
+  }
+
+  .card--priority[data-done="done"] {
+    @apply order-3;
+  }
+
+  .card[data-done="done"]::before {
+    /* content: "";
+    @apply absolute top-0 left-0 right-0 bottom-0; */
+  }
+
+  .card--priority textarea {
+    @apply bg-[#162B5A];
+  }
+
+  .pill-label {
+    @apply py-1 px-4 text-xs rounded-2xl bg-[#bebeb5] text-[#162B5A] inline-block ;
+  }
+
+  .card--priority .pill-label {
+    @apply bg-white text-[#162B5A];
+  }
+
+  .todo-input {
+    @apply p-5 my-5 bg-[#EEEED0] text-[#162B5A] border border-[#EEEED0] rounded-2xl;
+  }
+}
