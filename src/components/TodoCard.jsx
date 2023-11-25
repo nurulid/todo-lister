@@ -62,12 +62,12 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
 
   return (
     <div
-      className={isPriority ? "card card--priority" : "card"}
+      className={ispriority ? "card card--priority" : "card"}
       data-done={isDone ? "done" : ""}
     >
       <div className="flex justify-between items-start mb-3">
         {onEdit ? (
-          <div className="mb-4 py-1 px-4 text-xs border rounded-full inline-block">
+          <div className="mb-4 py-1 px-4 text-xs border border-white rounded-full inline-block">
             <label htmlFor="priority" className="mr-2 cursor-pointer">
               High priority
             </label>
