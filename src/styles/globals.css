@@ -31,7 +31,7 @@
   }
 
   .card--priority textarea {
-    @apply bg-[#162B5A];
+    @apply bg-[#162B5A] border-white;
   }
 
   .pill-label {
