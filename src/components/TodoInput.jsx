@@ -34,7 +34,7 @@ export const TodoInput = () => {
         className="border-b border-[#162B5A] w-full bg-[#EEEED0] mb-3 outline-none" rows={5}
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
-        placeholder="Type here..."
+        placeholder="Type new todo here..."
       />
       <div className="mb-4 py-1 px-4 text-sm border border-[#162B5A] rounded-full inline-block">
         <label htmlFor="priority" className="mr-2 cursor-pointer">High priority</label>
@@ -47,7 +47,7 @@ export const TodoInput = () => {
         />
       </div>
       <button className="bg-[#162B5A] text-[#dbe3f5] w-full p-3 rounded-full" onClick={createTodo}>
-        Save Todo
+        Add Todo
       </button>
     </div>
   );
