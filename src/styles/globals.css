@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-slate-950;
+    @apply bg-slate-950 px-5;
   }
 }
 
