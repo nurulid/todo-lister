@@ -11,7 +11,7 @@ async function getTodos() {
 
 export default async function Home() {
   const { data } = await getTodos();
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="max-w-[500px] mx-auto my-[40px]">

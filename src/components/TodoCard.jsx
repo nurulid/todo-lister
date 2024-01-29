@@ -67,12 +67,12 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
     >
       <div className="flex justify-between items-start mb-3">
         {onEdit ? (
-          <div className="mb-4 py-1 px-4 text-xs border border-white rounded-full inline-block">
-            <label htmlFor="priority" className="mr-2 cursor-pointer">
+          <div className="mb-4 py-1 px-4 text-xs border border-white rounded-full inline-block hover:opacity-70">
+            <label htmlFor={`priority-${_id}`} className="mr-2 cursor-pointer">
               High priority
             </label>
             <input
-              id="priority"
+              id={`priority-${_id}`}
               type="checkbox"
               checked={isPriority}
               //   value={isPriority}
@@ -93,7 +93,7 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
         <div>
           {onEdit ? (
             <button
-              className="p-1 text-green-600"
+              className="p-1 text-green-600 hover:text-green-500"
               title="Update"
               onClick={handleUpdate}
             >
@@ -102,7 +102,7 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
           ) : (
             <>
               <button
-                className="p-1 "
+                className="p-1 hover:opacity-70"
                 title="Edit content"
                 onClick={() => setOnEdit(true)}
               >
@@ -110,7 +110,7 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
               </button>
 
               <button
-                className="p-1 ml-2 text-red-800"
+                className="p-1 ml-2 text-red-700 hover:text-red-500"
                 title="Delete"
                 onClick={handleDelete}
               >
@@ -141,16 +141,16 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
         </div>
         <div
           onClick={handleDone}
-          className="todo-mark flex items-center gap-2 text-xs cursor-pointer"
+          className="todo-mark flex items-center gap-2 text-xs cursor-pointer text-green-700 hover:text-green-600"
         >
           {isDone ? (
-            <span className="text-base" title="Undo?">
-              Finish
+            <span className="text-base text-black" title="Undo?">
+              Finished
             </span>
           ) : (
             <span>Mark as Finish</span>
           )}
-          <CheckCheck size={20} />
+          <CheckCheck size={20} color={isDone ? "black": "green"}/>
         </div>
       </div>
     </div>

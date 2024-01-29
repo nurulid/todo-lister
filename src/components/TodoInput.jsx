@@ -36,7 +36,7 @@ export const TodoInput = () => {
         onChange={(e) => setTodo(e.target.value)}
         placeholder="Type new todo here..."
       />
-      <div className="mb-4 py-1 px-4 text-sm border border-[#162B5A] rounded-full inline-block">
+      <div className="mb-4 py-1 px-4 text-sm border border-[#162B5A] hover:bg-yellow-100 rounded-full inline-block">
         <label htmlFor="priority" className="mr-2 cursor-pointer">High priority</label>
         <input
           id="priority"
@@ -46,7 +46,7 @@ export const TodoInput = () => {
           className="default:ring-2 cursor-pointer"
         />
       </div>
-      <button className="bg-[#162B5A] text-[#dbe3f5] w-full p-3 rounded-full" onClick={createTodo}>
+      <button className="bg-[#162B5A] hover:bg-[#1d3c7e] text-[#dbe3f5] w-full p-3 rounded-full" onClick={createTodo}>
         Add Todo
       </button>
     </div>
