@@ -6,6 +6,10 @@
   body {
     @apply bg-slate-950 px-5;
   }
+
+  button:disabled {
+    @apply opacity-80 bg-gray-800 hover:bg-gray-800;
+  }
 }
 
 @layer components {
