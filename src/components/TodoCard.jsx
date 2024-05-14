@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Pencil, CheckCheck, Trash2, Save } from "lucide-react";
+import { Pencil, CheckCheck, Trash2, Save, X } from "lucide-react";
 
 export const TodoCard = ({ _id, content, ispriority, isdone }) => {
   const router = useRouter();
@@ -67,7 +67,13 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
     >
       <div className="flex justify-between items-start mb-3">
         {onEdit ? (
-          <div className="mb-4 py-1 px-4 text-xs border border-white rounded-full inline-block hover:opacity-70">
+          <div
+            className={`${
+              isPriority
+                ? "bg-[#162B5A] text-white"
+                : "bg-[#EEEED0] text-[#162B5A]"
+            } mb-4 py-1 px-4 text-sm border border-[#162B5A] rounded-full inline-block`}
+          >
             <label htmlFor={`priority-${_id}`} className="mr-2 cursor-pointer">
               High priority
             </label>
@@ -92,13 +98,18 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
 
         <div>
           {onEdit ? (
-            <button
-              className="p-1 text-green-600 hover:text-green-500"
-              title="Update"
-              onClick={handleUpdate}
-            >
-              <Save />
-            </button>
+            <>
+              <button className="p-1 hover:text-red-700">
+                <X onClick={() => setOnEdit(false)} />
+              </button>
+              <button
+                className="p-1 text-green-600 hover:text-green-500"
+                title="Update"
+                onClick={handleUpdate}
+              >
+                <Save />
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -150,7 +161,7 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
           ) : (
             <span>Mark as Finish</span>
           )}
-          <CheckCheck size={20} color={isDone ? "black": "green"}/>
+          <CheckCheck size={20} color={isDone ? "black" : "green"} />
         </div>
       </div>
     </div>
