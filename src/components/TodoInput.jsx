@@ -36,6 +36,7 @@ export const TodoInput = () => {
     router.refresh();
     setTodo("");
     setPriority(false);
+    setIsButtonDisabled(true);
   }
 
   return (
@@ -47,8 +48,11 @@ export const TodoInput = () => {
         onChange={handleInputChange}
         placeholder="Type new todo here..."
       />
-      <div className="mb-4 py-1 px-4 text-sm border border-[#162B5A] hover:bg-yellow-100 rounded-full inline-block">
-        <label htmlFor="priority" className="mr-2 cursor-pointer">
+      <div
+        className={`${ priority ? "bg-[#162B5A] text-white" : ""
+        } mb-4 py-1 px-4 text-sm border border-[#162B5A] rounded-full inline-block`}
+      >
+        <label htmlFor="priority" className={`mr-2 cursor-pointer`}>
           High priority
         </label>
         <input
@@ -57,6 +61,7 @@ export const TodoInput = () => {
           value={priority}
           onChange={(e) => setPriority(e.currentTarget.checked)}
           className="default:ring-2 cursor-pointer"
+          checked={priority}
         />
       </div>
       <button
