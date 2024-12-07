@@ -10,6 +10,15 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
   const [currentContent, setCurrentContent] = useState(content);
   const [isPriority, setIsPriority] = useState(ispriority);
   const [isDone, setIsDone] = useState(isdone);
+  const [text, setText] = useState("Finished");
+
+  const handleMouseEnter = () => {
+    setText("Unfinish?");
+  };
+
+  const handleMouseLeave = () => {
+    setText("Finished");
+  };
 
   async function handleDelete() {
     await fetch(`https://v1.appbackend.io/v1/rows/frvryJAmRnM1`, {
@@ -73,7 +82,7 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
           <div
             className={`${
               isPriority
-                ? "bg-[#162B5A] text-white"
+                ? "bg-[#162B5A] text-white border-white"
                 : "bg-[#EEEED0] text-[#162B5A]"
             } mb-4 py-1 px-4 text-sm border border-[#162B5A] rounded-full inline-block`}
           >
@@ -113,7 +122,7 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
                 <Save />
               </button>
             </>
-          ) : (
+          ) : !isDone ? (
             <>
               <button
                 className="p-1 hover:opacity-70"
@@ -124,14 +133,14 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
               </button>
 
               <button
-                className="p-1 ml-2 text-red-700 hover:text-red-500"
+                className="p-1 ml-2 text-red-700 hover:text-red-500   disabled:hover:text-red-700"
                 title="Delete"
                 onClick={handleDelete}
               >
                 <Trash2 />
               </button>
             </>
-          )}
+          ) : null}
         </div>
       </div>
       {onEdit ? (
@@ -158,8 +167,12 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
           className="todo-mark flex items-center gap-2 text-xs cursor-pointer text-green-700 hover:text-green-600"
         >
           {isDone ? (
-            <span className="text-base text-black" title="Undo?">
-              Finished
+            <span
+              className="text-base text-black"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              {text}
             </span>
           ) : (
             <span>Mark as Finish</span>

@@ -12,7 +12,7 @@
   }
 
   button:disabled {
-    @apply opacity-80 bg-gray-800 hover:bg-gray-800;
+    @apply opacity-80 hover:bg-[#162B5A];
   }
 }
 
