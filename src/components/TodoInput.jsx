@@ -29,6 +29,7 @@ export const TodoInput = () => {
           content: todo,
           isdone: "",
           ispriority: priority,
+          isdeleted: false,
         },
       ]),
     });

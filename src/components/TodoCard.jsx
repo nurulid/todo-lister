@@ -13,11 +13,14 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
 
   async function handleDelete() {
     await fetch(`https://v1.appbackend.io/v1/rows/frvryJAmRnM1`, {
-      method: "DELETE",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify([_id]),
+      body: JSON.stringify({
+        _id: _id,
+        isdeleted: true,
+      }),
     });
     router.refresh();
   }

@@ -13,12 +13,16 @@ export default async function Home() {
   const { data } = await getTodos();
   // console.log(data);
 
+  const todoList = data.filter((todo) => todo.isdeleted === false);
+
   return (
     <div className="max-w-[500px] mx-auto my-[40px]">
-      <h1 className="text-white text-4xl text-center">Simplify With ToDoLister</h1>
+      <h1 className="text-white text-4xl text-center">
+        Simplify With ToDoLister
+      </h1>
       <TodoInput />
       <div className="flex flex-col gap-4">
-        {data.map(({ _id, content, ispriority, isdone }) => {
+        {todoList.map(({ _id, content, ispriority, isdone }) => {
           return (
             <TodoCard
               key={_id}
