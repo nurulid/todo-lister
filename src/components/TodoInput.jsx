@@ -30,6 +30,7 @@ export const TodoInput = () => {
           isdone: "",
           ispriority: priority,
           isdeleted: false,
+          createdat: new Date(),
         },
       ]),
     });

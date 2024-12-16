@@ -29,6 +29,7 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
       body: JSON.stringify({
         _id: _id,
         isdeleted: true,
+        deletedat: new Date(),
       }),
     });
     router.refresh();
