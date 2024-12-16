@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Pencil, CheckCheck, Trash2, Save, X } from "lucide-react";
-import DialogDemo from "./ConfirmDialog";
-import ConfirmDialog from "./ConfirmDialog";
+import DeleteConfirmDialog from "./DeleteConfirmDialog";
 
 export const TodoCard = ({ _id, content, ispriority, isdone }) => {
   const router = useRouter();
@@ -135,7 +134,7 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
                 <Pencil />
               </button>
 
-              <ConfirmDialog onClick={handleDelete}>
+              <DeleteConfirmDialog onClick={handleDelete}>
                 <button
                   className="p-1 ml-2 text-red-700 hover:text-red-500   disabled:hover:text-red-700"
                   title="Delete"
@@ -143,7 +142,7 @@ export const TodoCard = ({ _id, content, ispriority, isdone }) => {
                 >
                   <Trash2 />
                 </button>
-              </ConfirmDialog>
+              </DeleteConfirmDialog>
             </>
           ) : null}
         </div>

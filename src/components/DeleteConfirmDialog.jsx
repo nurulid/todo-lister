@@ -2,7 +2,7 @@ import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 
-const ConfirmDialog = ({ children, ...props }) => (
+const DeleteConfirmDialog = ({ children, ...props }) => (
   <Dialog.Root>
     <Dialog.Trigger asChild>{children}</Dialog.Trigger>
     <Dialog.Portal>
@@ -38,4 +38,4 @@ const ConfirmDialog = ({ children, ...props }) => (
   </Dialog.Root>
 );
 
-export default ConfirmDialog;
+export default DeleteConfirmDialog;
